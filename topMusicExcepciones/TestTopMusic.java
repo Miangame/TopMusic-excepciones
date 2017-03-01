@@ -144,7 +144,11 @@ public class TestTopMusic {
 		do {
 			posicion = Teclado.leerEntero("\nIntroduzca la posici�n deseada entre 1 y " + (lista.size() + 1) + ": ");
 		} while (!lista.esPosicionValida(posicion - 1));
-		System.out.println(lista.aniadirCancion(posicion - 1, crearCancion()));
+		try {
+			System.out.println(lista.aniadirCancion(posicion - 1, crearCancion()));
+		} catch (PosicionNoValidaException e) {
+			System.err.println("\n" + e.getMessage());
+		}
 	}
 
 	/**

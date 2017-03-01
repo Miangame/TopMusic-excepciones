@@ -26,6 +26,8 @@ public class TestUnitario {
 			System.err.println("\n" + e.getMessage());
 		} catch (CancionNoValidaException e) {
 			System.err.println("\n" + e.getMessage());
+		} catch (PosicionNoValidaException e) {
+			System.err.println("\n" + e.getMessage());
 		}
 	}
 

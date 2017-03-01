@@ -96,10 +96,11 @@ public class TopMusic {
 	 * AÃ±ade una canciÃ³n a la lista
 	 * 
 	 * @param lista
+	 * @throws PosicionNoValidaException 
 	 */
-	String aniadirCancion(int posicion, Cancion cancion) {
+	String aniadirCancion(int posicion, Cancion cancion) throws PosicionNoValidaException {
 		if (!esPosicionValida(posicion)) {
-			return null;
+			throw new PosicionNoValidaException("La posición no es correcta");
 		}
 		lista.add(posicion, cancion);
 		return "\nSe ha añadido una canción";
