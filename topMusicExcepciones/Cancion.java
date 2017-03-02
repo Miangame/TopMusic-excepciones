@@ -43,23 +43,10 @@ public class Cancion {
 	 */
 	public Cancion(String titulo, String artista, int anioGrabacion)
 			throws AutorNoValidoException, FechaNoValidaException, CancionNoValidaException {
-		if (comprobarTituloAutor(artista)) {
-			setArtista(artista);
-		} else {
-			throw new AutorNoValidoException("El autor no es correcto");
-		}
 
-		if (comprobarAnio(anioGrabacion)) {
-			setAnioGrabacion(anioGrabacion);
-		} else {
-			throw new FechaNoValidaException("La fecha no es correcta");
-		}
-
-		if (comprobarTituloAutor(titulo)) {
-			setTitulo(titulo);
-		} else {
-			throw new CancionNoValidaException("El título no es correcto");
-		}
+		setArtista(artista);
+		setAnioGrabacion(anioGrabacion);
+		setTitulo(titulo);
 
 	}
 
@@ -75,24 +62,36 @@ public class Cancion {
 		return titulo;
 	}
 
-	private void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
 	public String getArtista() {
 		return artista;
-	}
-
-	private void setArtista(String artista) {
-		this.artista = artista;
 	}
 
 	public int getAnioGrabacion() {
 		return anioGrabacion;
 	}
 
-	private void setAnioGrabacion(int anioGrabacion) {
-		this.anioGrabacion = anioGrabacion;
+	private void setTitulo(String titulo) throws CancionNoValidaException {
+		if (comprobarTituloAutor(titulo)) {
+			this.titulo = titulo;
+		} else {
+			throw new CancionNoValidaException("El título no es correcto");
+		}
+	}
+
+	private void setArtista(String artista) throws AutorNoValidoException {
+		if (comprobarTituloAutor(artista)) {
+			this.artista = artista;
+		} else {
+			throw new AutorNoValidoException("El autor no es correcto");
+		}
+	}
+
+	private void setAnioGrabacion(int anioGrabacion) throws FechaNoValidaException {
+		if (comprobarAnio(anioGrabacion)) {
+			this.anioGrabacion = anioGrabacion;
+		} else {
+			throw new FechaNoValidaException("La fecha no es correcta");
+		}
 	}
 
 	@Override
