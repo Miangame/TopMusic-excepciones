@@ -15,20 +15,12 @@ public class TestUnitario {
 	TopMusic lista = new TopMusic();
 
 	@Before
-	public void startClass() {
-		try {
-			lista.aniadirCancion(0, (new Cancion("Me too", "The B-52's", 2000)));
-			lista.aniadirCancion(1, (new Cancion("Don´t let me down", "Jain", 2017)));
-			lista.aniadirCancion(2, (new Cancion("19 días y 500 noches", "Joaquín Sabina", 2000)));
-		} catch (AutorNoValidoException e) {
-			System.err.println("\n" + e.getMessage());
-		} catch (FechaNoValidaException e) {
-			System.err.println("\n" + e.getMessage());
-		} catch (CancionNoValidaException e) {
-			System.err.println("\n" + e.getMessage());
-		} catch (PosicionNoValidaException e) {
-			System.err.println("\n" + e.getMessage());
-		}
+	public void startClass()
+			throws PosicionNoValidaException, AutorNoValidoException, FechaNoValidaException, CancionNoValidaException {
+		lista.aniadirCancion(0, (new Cancion("Me too", "The B-52's", 2000)));
+		lista.aniadirCancion(1, (new Cancion("Don´t let me down", "Jain", 2017)));
+		lista.aniadirCancion(2, (new Cancion("19 días y 500 noches", "Joaquín Sabina", 2000)));
+
 	}
 
 	@Test
